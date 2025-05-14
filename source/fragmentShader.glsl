@@ -12,14 +12,13 @@ out vec3 fragmentColour;
 uniform sampler2D diffuseMap;
 uniform float ka;
 uniform float kd;
-uniform float ks;
-uniform float Ns;
 uniform vec3 lightColour;
 uniform vec3 lightPosition;
+uniform float ks;
+uniform float Ns;
 uniform float constant;
 uniform float linear;
 uniform float quadratic;
-uniform Light lightSources[maxLights];
 
 void main()
 {
@@ -39,7 +38,7 @@ void main()
     vec3 camera     = normalize(-fragmentPosition);
     vec3 reflection = - light + 2 * dot(light, normal) * normal;
     float cosAlpha  = max(dot(camera, reflection), 0);
-    vec3 specular   = ks * lightColour * pow(cosAlpha, Ns);     
+    vec3 specular   = ks * lightColour * pow(cosAlpha, Ns);
 
     // Attenuation
     float distance    = length(lightPosition - fragmentPosition);

@@ -21,8 +21,8 @@ void main()
     
     // Output texture coordinates
     UV = uv;
-
+    
     // Output view space fragment position and normal vector
-    fragmentPosition    = vec3(MV * vec4(position, 1.0));
-    Normal              = mat3(transpose(inverse(MV))) * normal;
+    fragmentPosition = vec3(MV * vec4(position, 1.0));
+    Normal           = mat3(transpose(inverse(MV))) * normal;
 }
