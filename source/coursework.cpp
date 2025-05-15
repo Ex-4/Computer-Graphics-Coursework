@@ -91,7 +91,7 @@ int main(void)
     // Compile shader program
     unsigned int shaderID, lightShaderID;
     shaderID = LoadShaders("vertexShader.glsl", "fragmentShader.glsl");
-    //lightShaderID = LoadShaders("lightVertexShader.glsl", "lightFragmentShader.glsl");
+    lightShaderID = LoadShaders("lightVertexShader.glsl", "lightFragmentShader.glsl");
 
     // Activate shader
     glUseProgram(shaderID);
