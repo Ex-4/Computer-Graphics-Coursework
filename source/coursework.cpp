@@ -99,7 +99,6 @@ int main(void)
     // Load models
     Model spooky_cauldron("../assets/cauldron.obj");
     Model sphere("../assets/sphere.obj");
-    Model plane("../assets/plane.obj");
 
     // Load the textures
     spooky_cauldron.addTexture("../assets/blue.bmp", "diffuse");
@@ -199,23 +198,6 @@ int main(void)
                 // Calculate view and projection matrices
         camera.target = camera.eye + camera.front;
         camera.calculateMatrices();
-
-        // Calculate the model matrix
-        //glm::mat4 translate;
-        //glm::mat4 scale;
-        //glm::mat4 rotate;
-        //glm::mat4 model = translate * rotate * scale;
-
-        // Calculate the MVP matrix
-        //glm::mat4 MVP = camera.projection * camera.view * model;
-
-        // Send MVP matrix to the vertex shader
-        //glUniformMatrix4fv(glGetUniformLocation(shaderID, "MVP"), 1, GL_FALSE, &MVP[0][0]);
-
-        // Send MV matrix to the vertex shader
-        //glm::mat4 MV = camera.view * model;
-        //glUniformMatrix4fv(glGetUniformLocation(shaderID, "MV"), 1, GL_FALSE, &MV[0][0]);
-
         // Loop through objects
         for (int i = 0; i < static_cast<unsigned int>(objects.size()); i++)
         {
@@ -300,3 +282,19 @@ void mouseInput(GLFWwindow* window)
     // Calculate camera vectors from the yaw and pitch angles
     camera.calculateCameraVectors();
 }
+
+// Calculate the model matrix
+//glm::mat4 translate;
+//glm::mat4 scale;
+//glm::mat4 rotate;
+//glm::mat4 model = translate * rotate * scale;
+
+// Calculate the MVP matrix
+//glm::mat4 MVP = camera.projection * camera.view * model;
+
+// Send MVP matrix to the vertex shader
+//glUniformMatrix4fv(glGetUniformLocation(shaderID, "MVP"), 1, GL_FALSE, &MVP[0][0]);
+
+// Send MV matrix to the vertex shader
+//glm::mat4 MV = camera.view * model;
+//glUniformMatrix4fv(glGetUniformLocation(shaderID, "MV"), 1, GL_FALSE, &MV[0][0]);
